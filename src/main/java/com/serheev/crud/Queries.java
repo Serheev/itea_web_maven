@@ -16,8 +16,7 @@ public class Queries {
                 "LEFT JOIN project.developers developer " +
                 "GROUP BY project.name " +
                 "ORDER BY salaries_sum DESC");
-        List<Object[]> list = (List<Object[]>) query.setMaxResults(1).getResultList();
-        return list;
+        return (List<Object[]>) query.setMaxResults(1).getResultList();
     }
 
     public List<Object[]> totalSalaryJavaDevelopers() {
@@ -26,15 +25,13 @@ public class Queries {
                 "LEFT JOIN skill.developers developer " +
                 "WHERE skill.industry = 'Java' " +
                 "GROUP BY skill.industry");
-        List<Object[]> list = (List<Object[]>) query.getResultList();
-        return list;
+        return (List<Object[]>) query.getResultList();
     }
 
     public List<ProjectEntity> cheapestProjectByCost() {
         Query query = em.createQuery("SELECT p FROM ProjectEntity p " +
                 "WHERE cost = (SELECT MIN(cost) FROM ProjectEntity)");
-        List<ProjectEntity> list = (List<ProjectEntity>) query.getResultList();
-        return list;
+        return (List<ProjectEntity>) query.getResultList();
     }
 
     public List<Object[]> averageSalaryOfCheapestProject() {
@@ -43,7 +40,6 @@ public class Queries {
                 "LEFT JOIN project.developers developer " +
                 "GROUP BY project.name, project.cost " +
                 "ORDER BY project.cost ASC");
-        List<Object[]> list = (List<Object[]>) query.setMaxResults(1).getResultList();
-        return list;
+        return (List<Object[]>) query.setMaxResults(1).getResultList();
     }
 }

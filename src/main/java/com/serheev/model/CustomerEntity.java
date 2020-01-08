@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.apache.log4j.Logger;
 
 import javax.persistence.CascadeType;
@@ -26,7 +25,6 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Setter
 @Getter
-@ToString
 @Entity
 @Table(name = "customer")
 @NamedQuery(name = "CustomerEntity.getAll", query = "SELECT c FROM CustomerEntity c")

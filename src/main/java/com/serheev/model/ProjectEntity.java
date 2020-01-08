@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.apache.log4j.Logger;
 
 import javax.persistence.Column;
@@ -27,7 +26,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Setter
 @Getter
-@ToString
 @Entity
 @Table(name = "project")
 @NamedQuery(name = "ProjectEntity.getAll", query = "SELECT p FROM ProjectEntity p")
@@ -43,11 +41,9 @@ public class ProjectEntity extends BaseEntity {
     @Column(name = "cost")
     private int cost;
 
-    @ToString.Exclude
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "projects")
     private Set<DeveloperEntity> developers;
 
-    @ToString.Exclude
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "projects")
     private Set<CustomerEntity> customers;
 

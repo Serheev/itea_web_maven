@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
-import lombok.ToString;
 import org.apache.log4j.Logger;
 
 import javax.persistence.Column;
@@ -28,7 +27,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Setter
 @Getter
-@ToString
 @Entity
 @Table(name = "company", uniqueConstraints = {@UniqueConstraint(columnNames = {"name", "country"})})
 @NamedQuery(name = "CompanyEntity.getAll", query = "SELECT c FROM CompanyEntity c")
