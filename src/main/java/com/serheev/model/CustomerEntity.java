@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
@@ -21,13 +20,13 @@ import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 @Entity
 @Table(name = "customer")
 @NamedQuery(name = "CustomerEntity.getAll", query = "SELECT c FROM CustomerEntity c")
+@NoArgsConstructor
+@AllArgsConstructor
 public class CustomerEntity extends BaseEntity {
     private static Logger log = Logger.getLogger(CustomerEntity.class);
 
@@ -36,7 +35,7 @@ public class CustomerEntity extends BaseEntity {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "id", unique = true, nullable = false, updatable = false, insertable = false)
     private ProjectEntity projects;
 

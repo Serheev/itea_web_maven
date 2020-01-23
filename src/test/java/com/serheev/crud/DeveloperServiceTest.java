@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class DeveloperServiceTest {
-    static Logger log = Logger.getLogger(DeveloperServiceTest.class);
+    private static Logger log = Logger.getLogger(DeveloperServiceTest.class);
 
     private DeveloperService service;
     private DeveloperEntity newRecord;

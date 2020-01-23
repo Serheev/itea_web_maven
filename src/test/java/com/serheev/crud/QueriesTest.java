@@ -23,7 +23,7 @@ public class QueriesTest {
             String name = (String) r[0];
             Long salaries = (Long) r[1];
             log.info("The most expensive project for developer's salaries = " + name + " : " + salaries);
-            assertEquals("ebay.com", name);
+            assertEquals("google.com", name);
         }
     }
 
@@ -33,7 +33,7 @@ public class QueriesTest {
             String skill = (String) r[0];
             Long salaries = (Long) r[1];
             log.info("The total salary for Java developers = " + skill + " : " + salaries);
-            assertTrue(16500 == salaries);
+            assertTrue(31500 == salaries);
         }
     }
 

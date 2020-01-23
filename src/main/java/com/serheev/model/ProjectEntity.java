@@ -22,13 +22,13 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.Set;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 @Entity
 @Table(name = "project")
 @NamedQuery(name = "ProjectEntity.getAll", query = "SELECT p FROM ProjectEntity p")
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProjectEntity extends BaseEntity {
     private static Logger log = Logger.getLogger(ProjectEntity.class);
 
@@ -41,7 +41,7 @@ public class ProjectEntity extends BaseEntity {
     @Column(name = "cost")
     private int cost;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "projects")
+    @ManyToMany(mappedBy = "projects")
     private Set<DeveloperEntity> developers;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "projects")

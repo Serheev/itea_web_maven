@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.PostLoad;
@@ -20,20 +19,20 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import java.util.Set;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 @Entity
 @Table(name = "skill")
 @NamedQuery(name = "SkillEntity.getAll", query = "SELECT s FROM SkillEntity s")
+@NoArgsConstructor
+@AllArgsConstructor
 public class SkillEntity extends BaseEntity {
     private static Logger log = Logger.getLogger(SkillEntity.class);
 
     @Column(name = "industry", length = 128)
     private String industry;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "skills")
+    @ManyToMany(mappedBy = "skills")
     private Set<DeveloperEntity> developers;
 
     @PrePersist

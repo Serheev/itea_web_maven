@@ -23,13 +23,13 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.Set;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 @Entity
 @Table(name = "company", uniqueConstraints = {@UniqueConstraint(columnNames = {"name", "country"})})
 @NamedQuery(name = "CompanyEntity.getAll", query = "SELECT c FROM CompanyEntity c")
+@NoArgsConstructor
+@AllArgsConstructor
 public class CompanyEntity extends BaseEntity {
     private static Logger log = Logger.getLogger(CompanyEntity.class);
 

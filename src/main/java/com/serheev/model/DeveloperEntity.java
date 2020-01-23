@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -23,13 +22,13 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import java.util.Set;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Setter
 @Getter
 @Entity
 @Table(name = "developer")
 @NamedQuery(name = "DeveloperEntity.getAll", query = "SELECT d FROM DeveloperEntity d")
+@NoArgsConstructor
+@AllArgsConstructor
 public class DeveloperEntity extends BaseEntity {
     private static Logger log = Logger.getLogger(DeveloperEntity.class);
 
@@ -47,7 +46,7 @@ public class DeveloperEntity extends BaseEntity {
     @Column(name = "onleave")
     private boolean onLeave;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developers")
+    @ManyToMany(mappedBy = "developers")
     private Set<CompanyEntity> companies;
 
     @ManyToMany
